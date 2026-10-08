@@ -53,7 +53,7 @@ Build a one-page website that helps people discover surf spots and surf schools 
 - `brief.md`: this project record.
 - The map outline and marker positions were revised after the visual feedback, but the revised result has not been visually verified in the browser.
 - The header is now sticky so it remains visible during scroll; section anchors include top spacing for it.
-- GitHub destination requested: [avijainnmims-design/surfing-India](https://github.com/avijainnmims-design/surfing-India). The browser showed GitHub sign-in; upload has not happened yet. The current shell also does not have Git available.
+- GitHub destination requested: [avijainnmims-design/surfing-India](https://github.com/avijainnmims-design/surfing-India). `index.html`, `style.cc`, `script.js`, and `brief.md` were committed to the `main` branch on 2026-10-08 using the connected GitHub tools. The local shell does not have Git available. `photo.jpg` remains absent and was not uploaded.
 
 ## Important decisions
 
@@ -95,12 +95,11 @@ Build a one-page website that helps people discover surf spots and surf schools 
 | Unsplash image could not be saved locally; shell download failed with a Windows TLS credentials error. | Page now tries `photo.jpg` and falls back to the verified Unsplash URL. Add and verify a real local `photo.jpg` before expecting offline display. |
 | A local-file preview could not be reopened through the browser tool because its URL policy blocked local-file navigation. | Do not keep retrying blocked browser navigation. The user can inspect the already-open local page; use an approved preview path if one becomes available. |
 | The first map silhouette and marker positions looked inaccurate. | The SVG outline and coordinates were revised. Before further visual polish, compare the map at desktop and phone widths and adjust markers against the coastlines. |
-| GitHub showed a 404 while the browser was signed out; the repo may be private or inaccessible to that session. | Sign in through GitHub's own page, then recheck the exact repository URL. Do not treat a logged-out 404 as proof that the repo does not exist. Upload is still pending authentication. |
+| GitHub showed a 404 while the browser was signed out; the repo may be private or inaccessible to that session. | Do not treat a logged-out 404 as proof that the repo does not exist. The connected GitHub integration successfully accessed the public repo and committed the project files to `main`. |
 
 ## Open items
 
 - Obtain a valid local `photo.jpg` and verify it displays; keep Unsplash attribution.
 - Visually review the revised map and mobile layout in a browser.
-- Complete the GitHub upload after GitHub authentication is available.
 - Confirm whether the page should eventually be published with GitHub Pages.
 
