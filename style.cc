@@ -57,3 +57,33 @@
 @media(max-width:650px){.breaks-section{padding:64px 18px 70px}.breaks-heading{display:block;margin-bottom:22px}.breaks-heading h2{font-size:42px}.breaks-heading>p{margin-top:15px;font-size:11px}.break-trigger{min-height:74px;padding:12px 2px;grid-template-columns:29px 1fr 30px;gap:9px}.break-number{font-size:12px}.break-name{font-size:20px}.break-summary{grid-column:2;grid-row:2;font-size:9px;margin-top:-14px}.break-toggle{grid-column:3;grid-row:1/3;width:27px;height:27px}.break-detail{grid-template-columns:1fr;gap:15px;padding:0 10px}.break-panel.is-open .break-detail{max-height:620px;padding:0 10px 18px}.break-copy>p:not(.break-kicker){font-size:14px}.break-preview{aspect-ratio:16/9;min-height:150px}.break-preview video{min-height:150px}}
 @media(prefers-reduced-motion:reduce){.break-detail,.break-toggle{transition:none}}
 
+/* GPT-6 Luna chat widget */
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.chat-widget{position:fixed;right:26px;bottom:24px;z-index:20;font-family:var(--sans)}
+.chat-launch{height:56px;padding:0 20px 0 15px;border:0;border-radius:999px;background:#19362f;color:white;box-shadow:0 9px 30px #142f2940;display:flex;align-items:center;gap:10px;font:600 12px var(--sans);cursor:pointer;transition:transform .2s,background .2s}
+.chat-launch:hover{transform:translateY(-2px);background:#21645b}
+.chat-launch-icon{font-size:20px;color:#f1b989}
+.chat-panel{position:absolute;right:0;bottom:70px;width:min(390px,calc(100vw - 32px));height:min(590px,calc(100dvh - 110px));min-height:440px;background:#fffefa;border:1px solid #dce3da;box-shadow:0 18px 60px #17382e30;display:flex;flex-direction:column;overflow:hidden}
+.chat-panel[hidden]{display:none}
+.chat-panel-head{padding:19px 20px 16px;background:#e7eee6;border-bottom:1px solid #dce3da;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.chat-kicker{font-size:8px;letter-spacing:.14em;font-weight:700;color:#73887b;margin:0 0 4px}
+.chat-panel-head h2{font:500 24px/1.1 var(--serif);letter-spacing:-.03em;color:#19362f;margin:0 0 5px}
+.chat-panel-head span{font-size:9px;color:#78877d}
+.chat-close{width:30px;height:30px;flex:none;border:1px solid #cbd7ce;border-radius:50%;background:transparent;color:#19362f;font-size:20px;line-height:1;cursor:pointer}
+.chat-messages{flex:1;min-height:0;padding:18px;display:flex;flex-direction:column;gap:12px;overflow:auto;overscroll-behavior:contain}
+.chat-bubble{max-width:88%;padding:11px 13px;margin:0;font-size:12px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-bubble.assistant{align-self:flex-start;background:#eaf0e9;color:#314b40}
+.chat-bubble.user{align-self:flex-end;background:#19362f;color:white}
+.chat-bubble.error{background:#fff0e9;color:#8a432e}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 12px}
+.chat-suggestions button{border:1px solid #d4ddd5;border-radius:99px;background:white;color:#436357;padding:7px 10px;font:500 9px var(--sans);cursor:pointer}
+.chat-suggestions button:hover{background:#eaf0e9}
+.chat-form{margin:0 14px;padding:8px 8px 8px 12px;border:1px solid #d5ddd5;background:white;display:flex;align-items:flex-end;gap:8px}
+.chat-form:focus-within{border-color:#4f8a79}
+.chat-form textarea{flex:1;max-height:100px;min-height:30px;resize:vertical;border:0;outline:0;background:transparent;color:#19362f;font:12px/1.5 var(--sans);padding:5px 0}
+.chat-form textarea::placeholder{color:#94a097}
+.chat-send{width:34px;height:34px;flex:none;border:0;border-radius:50%;background:#19362f;color:white;font-size:19px;cursor:pointer}
+.chat-send:disabled{opacity:.45;cursor:wait}
+.chat-note{padding:0 16px 10px;margin:8px 0 0;text-align:center;font-size:8px;line-height:1.4;color:#87938b}
+@media(max-width:650px){.chat-widget{right:14px;bottom:14px}.chat-panel{bottom:66px;height:min(580px,calc(100dvh - 96px));min-height:400px}.chat-launch{height:50px;padding:0 16px 0 13px}}
+
