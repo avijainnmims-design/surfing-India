@@ -100,9 +100,10 @@ Build a one-page website that helps people discover surf spots and surf schools 
 | The first map silhouette and marker positions looked inaccurate. | The SVG outline and coordinates were revised. Before further visual polish, compare the map at desktop and phone widths and adjust markers against the coastlines. |
 | GitHub showed a 404 while the browser was signed out; the repo may be private or inaccessible to that session. | Do not treat a logged-out 404 as proof that the repo does not exist. The connected GitHub integration successfully accessed the public repo and committed the project files to `main`. |
 
-## Open items
+- Hero now uses a full-bleed, viewport-width surfing photo with responsive overlay text and tuned desktop/tablet/phone breakpoints.\n\n## Open items
 
 - Obtain a valid local `photo.jpg` and verify it displays; keep Unsplash attribution.
 - Visually review the revised map and mobile layout in a browser.
 - Add a custom domain if desired.
+
 
