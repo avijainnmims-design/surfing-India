@@ -57,6 +57,11 @@ Build a one-page website that helps people discover surf spots and surf schools 
 - GitHub destination requested: [avijainnmims-design/surfing-India](https://github.com/avijainnmims-design/surfing-India). `index.html`, `style.cc`, `script.js`, and `brief.md` were committed to the `main` branch on 2026-10-08 using the connected GitHub tools. The local shell does not have Git available. `photo.jpg` remains absent and was not uploaded.
 - Vercel deployment: live at [surfing-india.vercel.app](https://surfing-india.vercel.app/), deployed from the GitHub `main` branch on 2026-10-08. Project preset is Other, root directory `./`, with no build step.
 
+## AI chatbot update
+
+- Added an accessible GPT-6 Luna-only chat widget and a Vercel /api/chat function using the native fetch API (no SDK or client-side key). The server hard-codes openai/gpt-6-luna; it cannot accept a model choice or fall back to another model. AI_GATEWAY_API_KEY must be configured privately in Vercel before the live chat can answer.
+- User preference: push to GitHub or deploy only when the user explicitly asks.
+
 ## Current interaction update
 
 - Added a proposed local-only interactive surf-break guide with four vertical rows. Videos are lazy-loaded on open, muted, and loop inline; the preview panels support mouse hover, keyboard focus, and click/tap. Reduced-motion preference suppresses autoplay. Pexels provides the free stock clips; each row includes a link to its source.
@@ -112,9 +117,12 @@ Build a one-page website that helps people discover surf spots and surf schools 
 
 ## Open items
 
+- Add AI_GATEWAY_API_KEY to Vercel’s environment settings and redeploy after the user requests deployment.
+
 - Obtain a valid local `photo.jpg` and verify it displays; keep Unsplash attribution.
 - Visually review the revised map and mobile layout in a browser.
 - Add a custom domain if desired.
+
 
 
 
