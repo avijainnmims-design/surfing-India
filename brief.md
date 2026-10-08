@@ -13,6 +13,7 @@ Build a one-page website that helps people discover surf spots and surf schools 
 - Focus on peninsular South India and its coasts.
 - Use free-to-use surf photography from India.
 - Keep it simple: no libraries, login, or payment flow.
+- Add a four-row interactive guide to beach, point, reef, and river-mouth breaks. Hover/focus on desktop and tap on touch devices to expand a short video preview and a plain-language description.
 - Requested deliverable filenames: `index.html`, `style.cc`, `script.js`, and `photo.jpg`.
 - The current project also includes this brief as `brief.md`.
 
@@ -56,6 +57,11 @@ Build a one-page website that helps people discover surf spots and surf schools 
 - GitHub destination requested: [avijainnmims-design/surfing-India](https://github.com/avijainnmims-design/surfing-India). `index.html`, `style.cc`, `script.js`, and `brief.md` were committed to the `main` branch on 2026-10-08 using the connected GitHub tools. The local shell does not have Git available. `photo.jpg` remains absent and was not uploaded.
 - Vercel deployment: live at [surfing-india.vercel.app](https://surfing-india.vercel.app/), deployed from the GitHub `main` branch on 2026-10-08. Project preset is Other, root directory `./`, with no build step.
 
+## Current interaction update
+
+- Added a proposed local-only interactive surf-break guide with four vertical rows. Videos are lazy-loaded on open, muted, and loop inline; the preview panels support mouse hover, keyboard focus, and click/tap. Reduced-motion preference suppresses autoplay. Pexels provides the free stock clips; each row includes a link to its source.
+- User preference: do not push code to GitHub or deploy the site unless the user explicitly asks for that action in a future request.
+
 ## Important decisions
 
 | Decision | Rationale / status |
@@ -81,6 +87,8 @@ Build a one-page website that helps people discover surf spots and surf schools 
 6. When editing CSS, keep the inline fallback and `style.cc` synchronized unless the project deliberately switches to a standard `.css` filename.
 7. Refresh ratings and review counts from linked sources before presenting them as current.
 8. After a production deploy, open the live URL and verify the headline, hero image, map, filters, and school cards.
+
+- When adding media interactions, confirm desktop hover, keyboard focus, touch activation, reduced-motion behavior, and that only the active video is loaded.
 
 ### Before uploading to GitHub
 
