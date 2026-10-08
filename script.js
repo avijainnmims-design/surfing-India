@@ -94,3 +94,52 @@ mainNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () 
   mainNav.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); menuToggle.setAttribute("aria-label", "Open menu");
 }));
 
+// Expand one surf-break preview at a time. Video files load only when opened.
+const breakPanels = [...document.querySelectorAll("[data-break-panel]")];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+function setBreakOpen(panel, shouldOpen, fromClick = false) {
+  const trigger = panel.querySelector(".break-trigger");
+  const detail = panel.querySelector(".break-detail");
+  const video = panel.querySelector("video");
+  panel.classList.toggle("is-open", shouldOpen);
+  trigger.setAttribute("aria-expanded", String(shouldOpen));
+  detail.setAttribute("aria-hidden", String(!shouldOpen));
+  detail.inert = !shouldOpen;
+  if (shouldOpen && video) {
+    const source = video.querySelector("source[data-src]");
+    if (source) {
+      source.src = source.dataset.src;
+      source.removeAttribute("data-src");
+      video.load();
+    }
+    if (!reducedMotion.matches || fromClick) video.play().catch(() => {});
+  } else if (video) {
+    video.pause();
+  }
+}
+function activateBreak(panel, fromClick = false) {
+  breakPanels.forEach(item => setBreakOpen(item, item === panel, fromClick && item === panel));
+}
+breakPanels.forEach(panel => {
+  const trigger = panel.querySelector(".break-trigger");
+  trigger.addEventListener("mouseenter", () => activateBreak(panel));
+  trigger.addEventListener("focus", () => activateBreak(panel));
+  trigger.addEventListener("click", () => {
+    const wasOpen = panel.classList.contains("is-open");
+    const openedByClick = panel.dataset.openedByClick === "true";
+    breakPanels.forEach(item => setBreakOpen(item, false));
+    if (wasOpen && openedByClick) {
+      delete panel.dataset.openedByClick;
+    } else {
+      setBreakOpen(panel, true, true);
+      panel.dataset.openedByClick = "true";
+    }
+  });
+  panel.querySelector("video").addEventListener("error", () => {
+    panel.querySelector(".preview-caption").textContent = "Preview unavailable · use the Pexels link";
+  });
+});
+
+
+
+
