@@ -6,7 +6,7 @@
 
 .intro-strip,.explore-section,.schools-section,.closing-banner{scroll-margin-top:92px}
 /* Full-bleed, responsive hero */
-.hero{min-height:clamp(600px,calc(100vh - 82px),820px);padding:0 7.1%;display:flex;align-items:center;position:relative;overflow:hidden;background:#19362f}
+.hero{min-height:clamp(680px,calc(100vh - 82px),820px);padding:0 7.1%;display:flex;align-items:center;position:relative;overflow:hidden;background:#19362f}
 .hero-copy{position:relative;z-index:3;width:min(650px,68vw);max-width:650px;margin:0;padding:62px 0 74px}
 .hero h1{max-width:640px;font-size:clamp(58px,8vw,110px);color:#fff}
 .hero h1 em{color:#c2dfce}
@@ -21,7 +21,8 @@
 .hero-sticker{right:7.1%;top:30px}
 .hero-index{right:7.1%;bottom:18px;z-index:2;color:rgba(255,255,255,.88)}
 .index-line{background:rgba(255,255,255,.55)}
-@media(max-width:900px){.hero{min-height:clamp(590px,calc(100vh - 82px),800px);padding:0 5%}.hero-copy{width:min(610px,76vw);padding:54px 0 76px}.hero-sticker{right:5%}.hero-index{right:5%}}
-@media(max-width:650px){.hero{min-height:clamp(560px,calc(100vh - 68px),760px);padding:0 20px;align-items:stretch;justify-content:flex-end}.hero-copy{width:100%;max-width:540px;padding:44px 0 54px;margin:0}.hero h1{font-size:clamp(49px,13vw,68px);max-width:510px}.hero-intro{max-width:440px;font-size:13px;line-height:1.75;margin:20px 0 22px}.hero-footnote{margin-top:25px}.hero-image{background-position:center 63%}.hero-photo{object-position:center 63%}.hero-sticker{width:76px;height:76px;font-size:8px;right:16px;top:16px}.sticker-star{font-size:15px}.photo-credit{font-size:8px;left:14px;bottom:13px}.hero-index{display:none}}
+@media(max-width:900px){.hero{min-height:clamp(660px,calc(100vh - 82px),800px);padding:0 5%}.hero-copy{width:min(610px,76vw);padding:54px 0 76px}.hero-sticker{right:5%}.hero-index{right:5%}}
+@media(max-width:650px){.hero{min-height:clamp(620px,calc(100vh - 68px),760px);padding:0 20px;align-items:stretch;justify-content:flex-end}.hero-copy{width:100%;max-width:540px;padding:44px 0 54px;margin:0}.hero h1{font-size:clamp(49px,13vw,68px);max-width:510px}.hero-intro{max-width:440px;font-size:13px;line-height:1.75;margin:20px 0 22px}.hero-footnote{margin-top:25px}.hero-image{background-position:center 63%}.hero-photo{object-position:center 63%}.hero-sticker{width:76px;height:76px;font-size:8px;right:16px;top:16px}.sticker-star{font-size:15px}.photo-credit{font-size:8px;left:14px;bottom:13px}.hero-index{display:none}}
 @media(max-height:560px) and (min-width:651px){.hero{min-height:540px}.hero-copy{padding-top:35px;padding-bottom:45px}.hero-footnote{margin-top:25px}}
+
 
