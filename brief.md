@@ -54,6 +54,7 @@ Build a one-page website that helps people discover surf spots and surf schools 
 - The map outline and marker positions were revised after the visual feedback, but the revised result has not been visually verified in the browser.
 - The header is now sticky so it remains visible during scroll; section anchors include top spacing for it.
 - GitHub destination requested: [avijainnmims-design/surfing-India](https://github.com/avijainnmims-design/surfing-India). `index.html`, `style.cc`, `script.js`, and `brief.md` were committed to the `main` branch on 2026-10-08 using the connected GitHub tools. The local shell does not have Git available. `photo.jpg` remains absent and was not uploaded.
+- Vercel deployment: live at [surfing-india.vercel.app](https://surfing-india.vercel.app/), deployed from the GitHub `main` branch on 2026-10-08. Project preset is Other, root directory `./`, with no build step.
 
 ## Important decisions
 
@@ -65,6 +66,7 @@ Build a one-page website that helps people discover surf spots and surf schools 
 | Keep the map library-free and illustrative | Meets the no-libraries constraint; marker positions are approximate. |
 | Keep `style.cc` and also embed CSS in `index.html` | Some servers do not recognize `.cc` as CSS. Inline CSS keeps the page styled if the linked file is served with the wrong MIME type. |
 | Use a remote image fallback until `photo.jpg` is available | Shell download failed, so no local image file was created. |
+| Deploy through Vercel from GitHub `main` | Vercel imported the repository as a static site with preset Other and no build command. The production deployment is live at `surfing-india.vercel.app`. |
 | No login or payment UI | Explicit product requirement. |
 
 ## SOPs
@@ -78,6 +80,7 @@ Build a one-page website that helps people discover surf spots and surf schools 
 5. Confirm that the hero photo has a valid local asset or a working online fallback, and retain its source attribution.
 6. When editing CSS, keep the inline fallback and `style.cc` synchronized unless the project deliberately switches to a standard `.css` filename.
 7. Refresh ratings and review counts from linked sources before presenting them as current.
+8. After a production deploy, open the live URL and verify the headline, hero image, map, filters, and school cards.
 
 ### Before uploading to GitHub
 
@@ -101,5 +104,5 @@ Build a one-page website that helps people discover surf spots and surf schools 
 
 - Obtain a valid local `photo.jpg` and verify it displays; keep Unsplash attribution.
 - Visually review the revised map and mobile layout in a browser.
-- Confirm whether the page should eventually be published with GitHub Pages.
+- Add a custom domain if desired.
 
