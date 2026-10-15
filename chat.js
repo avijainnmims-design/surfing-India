@@ -33,7 +33,7 @@ async function sendChatMessage() {
   chatInput.value = "";
   chatSend.disabled = true;
   chatInput.disabled = true;
-  chatStatus.textContent = "GPT-6 Luna is thinking…";
+  chatStatus.textContent = "Surf India AI is thinking…";
   const thinking = addBubble("Thinking…", "assistant");
 
   try {
