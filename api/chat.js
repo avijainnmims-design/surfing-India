@@ -49,7 +49,8 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify({
         model: MODEL_ID,
         messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
-        max_completion_tokens: 450,
+        max_completion_tokens: 900,
+        reasoning: { effort: "none" },
         stream: false,
       }),
     });
@@ -68,6 +69,11 @@ module.exports = async function handler(req, res) {
     const data = await response.json();
     const reply = data.choices?.[0]?.message?.content;
     if (typeof reply !== "string" || !reply.trim()) {
+      console.error("AI Gateway returned no visible reply", {
+        finishReason: data.choices?.[0]?.finish_reason || "unknown",
+        contentType: typeof data.choices?.[0]?.message?.content,
+        hasReasoningContent: typeof data.choices?.[0]?.message?.reasoning_content === "string",
+      });
       return res.status(502).json({ error: "I couldn’t get a reply just now. Please try again." });
     }
     return res.status(200).json({ reply: reply.trim(), model: MODEL_ID });
