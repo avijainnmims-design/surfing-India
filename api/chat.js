@@ -8,9 +8,10 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: "Use POST for chat messages." });
   }
 
-  const apiKey = process.env.AI_GATEWAY_API_KEY;
-  if (!apiKey) {
-    return res.status(503).json({ error: "Chat is not connected yet. Add the AI Gateway key in the server settings." });
+  const oidcToken = req.headers["x-vercel-oidc-token"] || process.env.VERCEL_OIDC_TOKEN;
+  const gatewayToken = oidcToken || process.env.AI_GATEWAY_API_KEY;
+  if (!gatewayToken) {
+    return res.status(503).json({ error: "Chat authentication is not configured for this deployment." });
   }
 
   const input = req.body && Array.isArray(req.body.messages) ? req.body.messages : null;
@@ -42,7 +43,7 @@ module.exports = async function handler(req, res) {
     const response = await fetch("https://ai-gateway.vercel.sh/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${gatewayToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -54,7 +55,13 @@ module.exports = async function handler(req, res) {
     });
 
     if (!response.ok) {
-      console.error("AI Gateway returned status", response.status);
+      const errorPayload = await response.json().catch(() => null);
+      const gatewayError = errorPayload?.error;
+      console.error("AI Gateway rejected the request", {
+        status: response.status,
+        type: typeof gatewayError?.type === "string" ? gatewayError.type.slice(0, 100) : undefined,
+        message: typeof gatewayError?.message === "string" ? gatewayError.message.slice(0, 300) : undefined,
+      });
       return res.status(502).json({ error: "I couldn’t get a reply just now. Please try again." });
     }
 
